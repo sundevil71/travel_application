@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mars Visit Application Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <form id="marsForm">
+            <!-- Stage 1: Personal Information -->
+            <div class="form-stage" id="stage-1">
+                <h2>Personal Information</h2>
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+                
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+                
+                <label for="nationality">Nationality:</label>
+                <input type="text" id="nationality" name="nationality" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <button type="button" onclick="nextStage(2)">Next</button>
+            </div>
+
+            <!-- Stage 2: Travel Preferences -->
+            <div class="form-stage" id="stage-2" style="display: none;">
+                <h2>Travel Preferences</h2>
+                <label for="departureDate">Departure Date:</label>
+                <input type="date" id="departureDate" name="departureDate" required>
+                
+                <label for="returnDate">Return Date:</label>
+                <input type="date" id="returnDate" name="returnDate" required>
+                
+                <label for="accommodation">Accommodation Preference:</label>
+                <select id="accommodation" name="accommodation" required>
+                    <option value="Space Hotel">Space Hotel</option>
+                    <option value="Martian Base">Martian Base</option>
+                </select>
+
+                <label for="specialRequests">Special Requests:</label>
+                <textarea id="specialRequests" name="specialRequests"></textarea>
+
+                <button type="button" onclick="previousStage(1)">Back</button>
+                <button type="button" onclick="nextStage(3)">Next</button>
+            </div>
+
+            <!-- Stage 3: Health and Safety -->
+            <div class="form-stage" id="stage-3" style="display: none;">
+                <h2>Health and Safety</h2>
+                <label for="healthDeclaration">Health Declaration (Yes/No):</label>
+                <select id="healthDeclaration" name="healthDeclaration" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                
+                <label for="emergencyContact">Emergency Contact:</label>
+                <input type="text" id="emergencyContact" name="emergencyContact" required>
+                
+                <label for="medicalConditions">Any Medical Conditions:</label>
+                <textarea id="medicalConditions" name="medicalConditions"></textarea>
+
+                <button type="button" onclick="previousStage(2)">Back</button>
+                <button type="button" onclick="reviewAndSubmit()">Submit</button>
+            </div>
+
+            <!-- Stage 4: Review and Submit -->
+            <div class="form-stage" id="stage-4" style="display: none;">
+                <h2>Review Your Application</h2>
+                <div id="review"></div>
+                <button type="button" onclick="previousStage(3)">Back</button>
+                <button type="submit">Confirm and Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
